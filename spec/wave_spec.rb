@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../wave_file'
+require 'wave_file'
 
 describe WaveFile do
 	its(:num_channels) {should == 1}
