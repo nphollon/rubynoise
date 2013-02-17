@@ -1,3 +1,5 @@
+require 'waveform'
+
 class SawtoothWave < Waveform
 	def eval(phase)
 		return phase
