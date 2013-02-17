@@ -11,6 +11,10 @@ class Waveform
 		phase < 0.5 ? 0 : 1
 	end
 
+	def sample(phase)
+		(eval(phase) * 0xff).to_i
+	end
+
 	def export_to_wav(duration)
 		wav = WaveFile.new
 		num_samples = (duration * wav.sample_rate).to_i
@@ -19,7 +23,7 @@ class Waveform
 		(0...num_samples).each do |i|
 			wavelengths = i / samples_per_wavelength
 			phase = wavelengths - wavelengths.floor
-			wav.data << eval(phase) * 0xff
+			wav.data << sample(phase)
 		end
 
 		wav
